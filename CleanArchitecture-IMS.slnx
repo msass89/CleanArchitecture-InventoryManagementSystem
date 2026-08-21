@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/CleanArchitecture-IMS.Plugins/">
+    <Project Path="CleanArchitecture-IMS.Plugins/CleanArchitecture-IMS.Plugins.InMemory/CleanArchitecture-IMS.Plugins.InMemory.csproj" Id="75d60f67-83d0-4ceb-9dcd-a30f23831a5d" />
+  </Folder>
+  <Folder Name="/Projektmappenelemente/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="CleanArchitecture-IMS.CoreEntities/CleanArchitecture-IMS.CoreEntities.csproj" Id="6b40ebf1-de13-4604-afff-431ba7cad79e" />
+  <Project Path="CleanArchitecture-IMS.UseCases/CleanArchitecture-IMS.UseCases.csproj" Id="7ff44550-f826-4625-b406-8e3adcf50687" />
+  <Project Path="CleanArchitecture-IMS.WebApp/CleanArchitecture-IMS.WebApp.csproj" />
+</Solution>
