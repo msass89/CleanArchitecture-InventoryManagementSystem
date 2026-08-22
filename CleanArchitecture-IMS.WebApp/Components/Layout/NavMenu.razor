@@ -9,6 +9,11 @@
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="nav flex-column">
         <div class="nav-item px-3">
+            <!--
+                NavLink highlights the link when the current route matches its href.
+                Match="All" requires an exact route match.
+                Match="Prefix" matches routes that start with the href.
+            -->
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
             </NavLink>
@@ -17,6 +22,12 @@
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="weather">
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="inventory">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Inventory
             </NavLink>
         </div>
     </nav>

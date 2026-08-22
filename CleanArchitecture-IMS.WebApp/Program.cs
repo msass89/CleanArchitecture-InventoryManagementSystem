@@ -1,12 +1,23 @@
 using CleanArchitecture_IMS.Plugins.InMemory;
+using CleanArchitecture_IMS.UseCases.Inventories;
+using CleanArchitecture_IMS.UseCases.Inventories.Interfaces;
 using CleanArchitecture_IMS.UseCases.PluginInterfaces;
 using CleanArchitecture_IMS.WebApp.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 builder.Services.AddRazorComponents();
-builder.Services.AddSingleton<IInventoryRepository, InventoryRepository>(); // whenever this interface is required, this concrete given implementation should be used
+
+// whenever a specific interface is required, the concrete given implementation should be used
+// AddSingleton creates an instance only once in the programs lifetime and persists throughout sessions
+builder.Services.AddSingleton<IInventoryRepository, InventoryRepository>();
+
+// AddTransient creates a new instance each time it's requested.
+// AddTransient is a lightweigt class, as it doesn't store any data
+builder.Services.AddTransient<IViewInventoryItemsByNameUseCase, ViewInventoryItemsByNameUseCase>();
+
+// AddScoped stores the created object as long as a SignalR channel is still established (for every session)
 
 var app = builder.Build();
 

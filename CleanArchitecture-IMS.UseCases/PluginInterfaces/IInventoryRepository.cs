@@ -7,6 +7,6 @@ namespace CleanArchitecture_IMS.UseCases.PluginInterfaces
 {
     public interface IInventoryRepository
     {
-        Task<IEnumerable<Inventory>> GetInventoriesByNameAsync();
+        Task<IEnumerable<InventoryItem>> GetInventoryItemsByNameAsync(string name);
     }
 }

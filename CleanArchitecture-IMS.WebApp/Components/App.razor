@@ -15,11 +15,12 @@
 </head>
 
 <body>
-    <Routes /> //is linking to the Routes.razor file
+    <Routes />
+    <!-- is linking to the Routes.razor component -->
     <script src="@Assets["_framework/blazor.web.js"]"></script> 
-    // the blazor.web.js file is responsible for establishing a SignalR channel to the server side
-    // the @Assets attach a hash to the URL of static assets, allowing them to be cached safely and preventing them
-    // from being served after the content changes.
+    <!-- the blazor.web.js file is responsible for establishing a SignalR channel to the server side
+    the @Assets attach a hash to the URL of static assets, allowing them to be cached safely and preventing them
+    from being served after the content changes. -->
 </body>
 
 </html>

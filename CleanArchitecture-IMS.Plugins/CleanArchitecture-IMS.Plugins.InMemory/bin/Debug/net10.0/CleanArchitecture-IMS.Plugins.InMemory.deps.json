@@ -1,0 +1,55 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "CleanArchitecture-IMS.Plugins.InMemory/1.0.0": {
+        "dependencies": {
+          "CleanArchitecture-IMS.UseCases": "1.0.0"
+        },
+        "runtime": {
+          "CleanArchitecture-IMS.Plugins.InMemory.dll": {}
+        }
+      },
+      "CleanArchitecture-IMS.CoreEntities/1.0.0": {
+        "runtime": {
+          "CleanArchitecture-IMS.CoreEntities.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "CleanArchitecture-IMS.UseCases/1.0.0": {
+        "dependencies": {
+          "CleanArchitecture-IMS.CoreEntities": "1.0.0"
+        },
+        "runtime": {
+          "CleanArchitecture-IMS.UseCases.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CleanArchitecture-IMS.Plugins.InMemory/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CleanArchitecture-IMS.CoreEntities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CleanArchitecture-IMS.UseCases/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

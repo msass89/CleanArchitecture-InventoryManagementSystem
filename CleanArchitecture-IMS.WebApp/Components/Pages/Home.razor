@@ -1,7 +1,35 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<!--Injects an instance of IViewInventoryItemsByNameUseCase, implemented by ViewInventoriesByNameUseCaseClass like configured in the Program.cs file-->
+@inject IViewInventoryItemsByNameUseCase ViewInventoryItemsByNameUseCase 
 
-<h1>Hello, world!</h1>
+<PageTitle>Test Page</PageTitle>
 
-Welcome to your new app.
+<h1>Inventory Items</h1>
+
+<br />
+<br />
+
+<ul>
+    <!--only shows a list of inventory items, when the list is not null-->
+    @if (inventoryItems != null && inventoryItems.Count > 0)
+    {
+        foreach (var inventoryItem in inventoryItems)
+        {
+            <li>
+                @inventoryItem.ItemName
+            </li>
+        }
+    }
+</ul>
+
+
+
+@code {
+    private List<InventoryItem>? inventoryItems; // '?' declares the list as nullable
+
+    protected override async Task OnInitializedAsync()
+    {
+        inventoryItems = (await ViewInventoryItemsByNameUseCase.ExecuteAsync("fhrdhl")).ToList(); // ToList converts the returned IEnumerable into a List
+    }
+}

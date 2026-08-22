@@ -1,9 +1,9 @@
 ﻿namespace CleanArchitecture_IMS.CoreEntities
 {
-    public class Inventory
+    public class InventoryItem
     {
-        public int InventoryId { get; set; }
-        public string InventoryName { get; set; } = string.Empty;
+        public int ItemId { get; set; }
+        public string ItemName { get; set; } = string.Empty;
         public int Quantity { get; set; }
         public double Price { get; set; }
     }
