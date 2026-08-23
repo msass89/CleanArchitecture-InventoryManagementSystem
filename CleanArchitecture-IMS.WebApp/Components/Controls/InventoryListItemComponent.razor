@@ -1,0 +1,16 @@
+﻿@if (InventoryItem != null)
+{
+    <tr>
+        <td>@InventoryItem.ItemName</td>
+        <td>@InventoryItem.Quantity</td>
+        <td>@InventoryItem.Price.ToString("c")</td> <!-- "c" indicates the formatation to the currency format -->
+        <td>
+            <button type="button" class="btn btn-light">Edit</button>
+        </td>
+    </tr>
+}
+
+@code {
+    [Parameter] // Allows the parent component to pass in a value.
+    public InventoryItem? InventoryItem { get; set; }
+}

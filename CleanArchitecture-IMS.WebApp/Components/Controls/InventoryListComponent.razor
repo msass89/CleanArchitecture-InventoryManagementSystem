@@ -1,0 +1,36 @@
+﻿
+<!--Injects an instance of IViewInventoryItemsByNameUseCase, implemented by ViewInventoriesByNameUseCaseClass like configured in the Program.cs file-->
+@inject IViewInventoryItemsByNameUseCase ViewInventoryItemsByNameUseCase
+
+
+<!-- Class="table" refers to a bootstrap class. Bootstrap is integrated by default in the bootstrap folder. -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (inventoryItems != null && inventoryItems.Count > 0)
+        {
+            foreach (var inventoryItem in inventoryItems)
+            {
+                <InventoryListItemComponent InventoryItem="inventoryItem"></InventoryListItemComponent>
+            }
+        }
+    </tbody>
+</table>
+
+
+
+@code {
+    private List<InventoryItem>? inventoryItems; // '?' declares the list as nullable
+
+    protected override async Task OnInitializedAsync()
+    {
+        inventoryItems = (await ViewInventoryItemsByNameUseCase.ExecuteAsync("")).ToList(); // ToList converts the returned IEnumerable into a List
+    }
+}
