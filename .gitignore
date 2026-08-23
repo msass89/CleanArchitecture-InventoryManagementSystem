@@ -17,6 +17,8 @@
 # === IDE-spezifische Dateien ===
 # Visual Studio
 */.vs
+/.vs/
+/.vs/*
 *.suo
 *.userosscache
 *.sln.docstates
@@ -25,6 +27,8 @@
 *.user
 # VS Code
 */.vscode
+/.vscode/
+/.vscode/*
 
 # === Paketverwaltung ===
 */packages/
