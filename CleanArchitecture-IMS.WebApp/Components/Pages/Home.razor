@@ -30,6 +30,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        inventoryItems = (await ViewInventoryItemsByNameUseCase.ExecuteAsync("fhrdhl")).ToList(); // ToList converts the returned IEnumerable into a List
+        inventoryItems = (await ViewInventoryItemsByNameUseCase.ExecuteAsync("")).ToList(); // ToList converts the returned IEnumerable into a List
     }
 }
