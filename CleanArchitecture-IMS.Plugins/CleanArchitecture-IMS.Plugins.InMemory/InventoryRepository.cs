@@ -6,11 +6,11 @@ namespace CleanArchitecture_IMS.Plugins.InMemory
 {
     public class InventoryRepository : IInventoryRepository
     {
-        private List<InventoryItem> _inventories;
+        private List<InventoryItem> _inventory;
 
         public InventoryRepository()
         {
-            _inventories = new List<InventoryItem>()
+            _inventory = new List<InventoryItem>()
             {
                 new InventoryItem { ItemId = 1, ItemName = "Motor", Quantity = 12, Price = 400},
                 new InventoryItem { ItemId = 2, ItemName = "Coupling", Quantity = 52, Price = 60},
@@ -21,13 +21,28 @@ namespace CleanArchitecture_IMS.Plugins.InMemory
             };
         }
 
+        public Task AddInventoryItem(InventoryItem inventoryItem)
+        {
+            // defensively checks, if the item already exists and return early in this case
+            if(_inventory.Any(item => item.ItemName.Equals(inventoryItem.ItemName, StringComparison.OrdinalIgnoreCase)))
+                return Task.CompletedTask;
+
+            var maxId = _inventory.Max(item => item.ItemId);
+            inventoryItem.ItemId = maxId + 1;
+
+            _inventory.Add(inventoryItem);
+
+            return Task.CompletedTask;
+        }
+
         public async Task<IEnumerable<InventoryItem>> GetInventoryItemsByNameAsync(string name)
         {
             // returns the whole Inventory, if the name is empty or white space
-            if (string.IsNullOrWhiteSpace(name)) return await Task.FromResult(_inventories);
+            if (string.IsNullOrWhiteSpace(name)) return await Task.FromResult(_inventory);
 
             // if the name is not empty, returns inventory items by name
-            return _inventories.Where(x => x.ItemName.Contains(name, StringComparison.OrdinalIgnoreCase));
+            return _inventory.Where(x => x.ItemName.Contains(name, StringComparison.OrdinalIgnoreCase));
         }
+
     }
 }

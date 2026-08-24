@@ -1,6 +1,7 @@
 using CleanArchitecture_IMS.Plugins.InMemory;
 using CleanArchitecture_IMS.UseCases.Inventories;
 using CleanArchitecture_IMS.UseCases.Inventories.Interfaces;
+using CleanArchitecture_IMS.UseCases.Inventory.Interfaces;
 using CleanArchitecture_IMS.UseCases.PluginInterfaces;
 using CleanArchitecture_IMS.WebApp.Components;
 
@@ -16,6 +17,7 @@ builder.Services.AddSingleton<IInventoryRepository, InventoryRepository>();
 // AddTransient creates a new instance each time it's requested.
 // AddTransient is a lightweigt class, as it doesn't store any data
 builder.Services.AddTransient<IViewInventoryItemsByNameUseCase, ViewInventoryItemsByNameUseCase>();
+builder.Services.AddTransient<IAddInventoryItemUseCase, IAddInventoryItemUseCase>();
 
 // AddScoped stores the created object as long as a SignalR channel is still established (for every session)
 
