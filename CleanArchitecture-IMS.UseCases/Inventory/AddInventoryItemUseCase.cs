@@ -1,8 +1,6 @@
 ﻿using CleanArchitecture_IMS.CoreEntities;
+using CleanArchitecture_IMS.UseCases.Inventory.Interfaces;
 using CleanArchitecture_IMS.UseCases.PluginInterfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CleanArchitecture_IMS.UseCases.Inventory
 {

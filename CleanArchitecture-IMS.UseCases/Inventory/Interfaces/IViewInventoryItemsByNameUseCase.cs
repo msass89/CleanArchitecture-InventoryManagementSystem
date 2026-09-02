@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture_IMS.CoreEntities;
 
-namespace CleanArchitecture_IMS.UseCases.Inventories.Interfaces
+namespace CleanArchitecture_IMS.UseCases.Inventory.Interfaces
 {
     public interface IViewInventoryItemsByNameUseCase
     {

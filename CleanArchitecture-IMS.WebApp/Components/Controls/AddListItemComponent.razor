@@ -1,0 +1,36 @@
+﻿@page "/addinventoryitem"
+
+@inject IAddInventoryItemUseCase AddInventoryItemUseCase
+
+<h3>Add Inventory Item</h3>
+
+<!--EditForm is a form provided by Microsoft, that is collecting data for the declarated InventoryItem model-->
+<!--On pressing the submit button, the method 'Save' is called-->
+<!--InputText und InputNumber are input fields provided by Microsoft -->
+<EditForm Model="inventoryItem" FormName="formInventoryItem" OnValidSubmit="Save">
+    <div class="form-group">
+        <label for="name">Inventory Name: </label>
+        <InputText id="name" @bind-Value="inventoryItem.ItemName" class="form-control"></InputText>
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity: </label>
+        <InputNumber id="quantity" @bind-Value="inventoryItem.Quantity" class="form-control"></InputNumber>
+    </div>
+    <div class="form-group">
+        <label for="price">Price: </label>
+        <InputNumber id="price" @bind-Value="inventoryItem.Price" class="form-control"></InputNumber>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Save</button>
+</EditForm>
+
+@code {
+
+    [SupplyParameterFromForm] // maps the data from the form to the InventoryItem
+    private InventoryItem inventoryItem { get; set; } = new InventoryItem();
+
+    private async Task Save()
+    {
+        await AddInventoryItemUseCase.ExecuteAsync(inventoryItem);
+    }
+}
