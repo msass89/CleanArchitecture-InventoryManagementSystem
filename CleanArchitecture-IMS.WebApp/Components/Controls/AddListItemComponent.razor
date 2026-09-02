@@ -1,6 +1,7 @@
 ﻿@page "/addinventoryitem"
 
 @inject IAddInventoryItemUseCase AddInventoryItemUseCase
+@inject NavigationManager NavigationManager 
 
 <h3>Add Inventory Item</h3>
 
@@ -22,6 +23,7 @@
     </div>
     <br/>
     <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/inventory" class="btn btn-primary">Cancel</a>
     <br/>
     <br/>
     <DataAnnotationsValidator></DataAnnotationsValidator> <!--validates the form input according to the data annotation of the model-->
@@ -36,5 +38,7 @@
     private async Task Save()
     {
         await AddInventoryItemUseCase.ExecuteAsync(inventoryItem);
+
+        NavigationManager.NavigateTo("/inventory"); //after adding the new inventory item, navigate back to the inventory page
     }
 }
